@@ -553,6 +553,10 @@ video {
   position: fixed;
 }
 
+.absolute {
+  position: absolute;
+}
+
 .relative {
   position: relative;
 }
@@ -682,6 +686,10 @@ video {
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .overflow-hidden {
