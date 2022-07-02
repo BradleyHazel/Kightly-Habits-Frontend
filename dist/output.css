@@ -597,6 +597,10 @@ video {
   left: 0.75rem;
 }
 
+.m-5 {
+  margin: 1.25rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -662,6 +666,22 @@ video {
 .w-max {
   width: -webkit-max-content;
   width: max-content;
+}
+
+.w-1\/4 {
+  width: 25%;
+}
+
+.w-3\/4 {
+  width: 75%;
+}
+
+.w-3\/6 {
+  width: 50%;
+}
+
+.w-5\/6 {
+  width: 83.333333%;
 }
 
 .max-w-sm {
@@ -805,6 +825,26 @@ video {
   padding: 0px;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -855,12 +895,25 @@ video {
   padding-right: 0.25rem;
 }
 
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .pt-4 {
   padding-top: 1rem;
 }
 
 .pb-2 {
   padding-bottom: 0.5rem;
+}
+
+.pt-0 {
+  padding-top: 0px;
+}
+
+.pt-5 {
+  padding-top: 1.25rem;
 }
 
 .text-xl {
@@ -1067,6 +1120,14 @@ video {
     width: 5rem;
   }
 
+  .sm\:w-1\/4 {
+    width: 25%;
+  }
+
+  .sm\:w-1\/2 {
+    width: 50%;
+  }
+
   .sm\:bg-slate-600 {
     --tw-bg-opacity: 1;
     background-color: rgb(71 85 105 / var(--tw-bg-opacity));
@@ -1075,6 +1136,10 @@ video {
   .sm\:bg-slate-100 {
     --tw-bg-opacity: 1;
     background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+  }
+
+  .sm\:p-4 {
+    padding: 1rem;
   }
 
   .sm\:px-1 {
@@ -1090,6 +1155,22 @@ video {
 
   .md\:w-24 {
     width: 6rem;
+  }
+
+  .md\:w-1\/4 {
+    width: 25%;
+  }
+
+  .md\:w-2\/5 {
+    width: 40%;
+  }
+
+  .md\:p-6 {
+    padding: 1.5rem;
+  }
+
+  .md\:p-4 {
+    padding: 1rem;
   }
 
   .md\:px-2 {
@@ -1112,6 +1193,26 @@ video {
     width: 7rem;
   }
 
+  .lg\:w-2\/4 {
+    width: 50%;
+  }
+
+  .lg\:w-1\/4 {
+    width: 25%;
+  }
+
+  .lg\:w-1\/6 {
+    width: 16.666667%;
+  }
+
+  .lg\:p-8 {
+    padding: 2rem;
+  }
+
+  .lg\:p-6 {
+    padding: 1.5rem;
+  }
+
   .lg\:px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -1124,6 +1225,14 @@ video {
 }
 
 @media (min-width: 1280px) {
+  .xl\:w-1\/4 {
+    width: 25%;
+  }
+
+  .xl\:w-1\/6 {
+    width: 16.666667%;
+  }
+
   .xl\:px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -1133,6 +1242,18 @@ video {
 @media (min-width: 1536px) {
   .\32xl\:w-40 {
     width: 10rem;
+  }
+
+  .\32xl\:w-1\/4 {
+    width: 25%;
+  }
+
+  .\32xl\:w-1\/6 {
+    width: 16.666667%;
+  }
+
+  .\32xl\:w-60 {
+    width: 15rem;
   }
 
   .\32xl\:px-4 {
