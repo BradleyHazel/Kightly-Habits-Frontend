@@ -4,8 +4,10 @@ import React from 'react'
 function Knight() {
   return (
     <aside class="p-10">  
-      <div class="max-w-sm rounded overflow-hidden shadow-lg">
-    
+      <div  style={{ display:"flex", flexDirection:"column", justifyContent:"space-evenly"}} className="max-w-sm rounded overflow-hidden shadow-lg">
+
+        <img src={'https://opengameart.org/sites/default/files/BronzeKnight.gif'} />
+
       <div class="px-6 py-4" style={{background: "red"}}>
         <div class="font-bold text-xl mb-2">Mountain</div>
         <p class="text-gray-700 text-base">
