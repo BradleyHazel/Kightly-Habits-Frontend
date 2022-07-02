@@ -5,12 +5,18 @@ function Main() {
   return (
     <div className="" style={{display: "flex"}}>
         <Sidebar />
-        <div style={{ display:"flex", justifyContent:"space-evenly"}} className="flex h-screen w-screen  bg-gradient-to-tr from-slate-400 to-green-300 ">
-            
-               
-                    
-                    
-            </div>
+        <div  className="flex flex-row justify-evenly items-center	overflow-auto	flex-wrap	 h-screen w-screen  bg-gradient-to-tr from-slate-400 to-green-300 ">
+        <Knight />
+        <Knight />
+        <Knight />
+        <Knight />
+        <Knight />
+        <Knight />
+        <Knight />
+        <Knight />
+        <Knight />
+        
+        </div>
         
     </div>
   )

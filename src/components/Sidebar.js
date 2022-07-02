@@ -7,17 +7,16 @@ function Sidebar() {
             <aside  className="flex flex-col">
               <img src="https://cdn.iconscout.com/icon/free/png-256/knight-63-904196.png"/>
               <div class='flex flex-col'>
-              <button style={{}} class=" bg-blue-500 hover:bg-blue-700 text-white font-bold border border-blue-700 rounded">
-                Add 
-              </button>
-            </div>
+                <button style={{}} class=" bg-blue-500 hover:bg-blue-700 text-white font-bold border border-blue-700 rounded">
+                  Add 
+                </button>
+              </div>
             </aside>
             <div class='flex flex-col'>
               <button style={{}} class=" bg-blue-500 hover:bg-blue-700 text-white font-bold border border-blue-700 rounded">
                 logout
               </button>
             </div>
-            
         </aside>
     </div>
   )
