@@ -1,5 +1,5 @@
 import React from 'react'
-
+import ProgressBar from "@ramonak/react-progress-bar";
 
 function Knight() {
   return (
@@ -7,7 +7,9 @@ function Knight() {
       <div  style={{ display:"flex", flexDirection:"column", justifyContent:"space-evenly"}} className="max-w-sm rounded overflow-hidden shadow-lg">
         <img  src={'https://opengameart.org/sites/default/files/BronzeKnight.gif'} />
         <div class="px-6 py-4" style={{background: "red"}}>
-          <div class="font-bold text-xl mb-2">Bronze Habit Knight</div>
+          <div class="font-bold text-xl mb-2">Bronze Knight of Habit Name</div>
+          <div>Level: 1</div>
+          <ProgressBar completed={60} bgColor={"#BF40BF"} />
           <p class="text-gray-700 text-base">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
           </p>
