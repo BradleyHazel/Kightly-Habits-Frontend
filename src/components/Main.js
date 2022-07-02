@@ -1,14 +1,21 @@
 import React from 'react'
 import Sidebar from './Sidebar'
+import Knight from './Knight'
 function Main() {
   return (
-    <div className="container">
+    <div className="" style={{display: "flex"}}>
         <Sidebar />
-        <main className="flex-1 ml-40">
-            <div  className="flex h-screen w-screen p-20 bg-gradient-to-tr from-slate-500 to-green-300 ">
-                <h1 className="text-4xl">Top Content</h1>
+        <div style={{ display:"flex", justifyContent:"space-evenly"}} className="flex h-screen w-screen p-10 bg-gradient-to-tr from-slate-400 to-green-300 ">
+            
+                    <Knight />
+                    <Knight />
+                    <Knight />
+                    <Knight />
+                    
+                   
+    
             </div>
-        </main>
+        
     </div>
   )
 }
