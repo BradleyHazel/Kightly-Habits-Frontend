@@ -32,7 +32,13 @@ let handleSubmit = async (e) => {
    }).then((res)=>{
        console.log(res);
        
-       nav("/RegistrationConfirmed");
+       axios.get('http://localhost:8001/checkAuthentication')
+       .then(res => {
+          myContext.setLoggedIn(res.data.authenticated);
+          nav("/home");
+          
+       })
+   
             
       
 
