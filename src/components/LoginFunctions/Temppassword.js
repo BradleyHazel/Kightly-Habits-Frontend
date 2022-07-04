@@ -29,7 +29,7 @@ function Temppassword() {
 
   return (
     <div className="">
-      <h1>Reset to temporary password</h1>
+      <h1  className="text-3xl text-white font-bold">Temporary password</h1>
       <form onSubmit={handleSubmit}>
         <br />
 

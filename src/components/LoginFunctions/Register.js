@@ -3,6 +3,7 @@ import { Button, TextField } from '@mui/material';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
+
 import { useContext } from "react";
 import AppContext from "../AppContext";
 axios.defaults.withCredentials = true;
@@ -43,14 +44,14 @@ let handleSubmit = async (e) => {
    
 
 return (
-  <div className="form-container w-screen">
+  <div style={{boxShadow:"inset 0 0 0 1000px rgba(58, 88, 121, 0.547)"}}className="form-container w-screen ">
     <div className="form-content-left">
       <img className="form-img" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Wesnoth_shield.svg"></img>
     </div>
     <div className="form-content-right">
       <div>
         <br />
-      <h1 className="title">Register</h1>
+      <h1 className="title text-3xl text-white font-bold ">Register</h1>
       <form onSubmit={handleSubmit}>
         <br />
         <div>

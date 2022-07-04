@@ -26,13 +26,13 @@ function Forgotuser() {
      }
 
   return (
-    <div className="form-container w-screen">
+    <div style={{boxShadow:"inset 0 0 0 1000px rgba(58, 88, 121, 0.547)"}} className="form-container w-screen dropshdw">
       <div className="form-content-left">
         <img className="form-img" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Wesnoth_shield.svg"></img>
       </div>
       <div className="form-content-right">
         <div>
-        <h1 className="title">Forgot Username</h1>
+        <h1 className="title  text-3xl text-white font-bold">Forgot Username</h1>
         <br/>
         <form onSubmit={handleSubmit}>
           <TextField

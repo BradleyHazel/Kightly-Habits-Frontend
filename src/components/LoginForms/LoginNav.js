@@ -12,7 +12,7 @@ function LoginNav() {
   
   return (
 
-      <nav className="navbar h-screen justify-around bg-gradient-to-t from-slate-400 to-green-400">
+      <nav className="navbar h-screen justify-around bg-gradient-to-l from-slate-400 to-green-400">
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             Knightly Habits
@@ -21,11 +21,7 @@ function LoginNav() {
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <li className="nav-item">
-              <Link to="/register" className="nav-links" onClick={closeMobileMenu}>
-                Signup
-              </Link>
-            </li>
+         
             <li className="nav-item">
               <Link
                 to="/login"
@@ -35,6 +31,14 @@ function LoginNav() {
                 Login
               </Link>
             </li>
+            <br />
+            <li className="nav-item">
+              <Link to="/register" className="nav-links" onClick={closeMobileMenu}>
+                Signup
+              </Link>
+            </li>
+            
+            <br />
             <li className="nav-item">
               <Link
                 to="/resetpassword"
@@ -44,7 +48,7 @@ function LoginNav() {
                 Change Password
               </Link>
             </li>
-            
+            <br />
                 <li className="nav-item">
               <Link
                 to="/forgotuser"
@@ -55,6 +59,9 @@ function LoginNav() {
               </Link>
             </li>
           </ul>
+          <div></div>
+          <div></div>
+          
         </div>
       </nav>
   );
