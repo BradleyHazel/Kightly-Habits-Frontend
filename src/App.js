@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Login from './components/LoginFunctions/Login';
 import Register from './components/LoginFunctions/Register';
 import AppContext from './components/AppContext';
@@ -112,6 +112,10 @@ function App() {
         
         <Route path="/logout" element={<LoginHome />} />
         <Route path="/login" element={<Login onChange={handleChange} />} />
+        <Route
+        path="*"
+        element={<Navigate to="/" replace />}
+    />
       </Routes>
     </AppContext.Provider>
     </div>
