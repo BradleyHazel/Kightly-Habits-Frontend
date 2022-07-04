@@ -32,7 +32,7 @@ let handleSubmit = async (e) => {
    }).then((res)=>{
        console.log(res);
        
-       nav("/login");
+       nav("/RegistrationConfirmed");
             
       
 
@@ -51,7 +51,7 @@ return (
     <div className="form-content-right">
       <div>
         <br />
-      <h1 className="title text-3xl text-white font-bold ">Register</h1>
+      <h1 className="title text-2xl text-white font-bold ">Register</h1>
       <form onSubmit={handleSubmit}>
         <br />
         <div>

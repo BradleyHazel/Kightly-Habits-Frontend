@@ -57,7 +57,7 @@ let handleSubmit = async (e) => {
         </div>
         <div className="form-content-right">
           <div>
-          <h1 className="title  text-3xl text-white font-bold">Login</h1>
+          <h1 className="title  text-2xl text-white font-bold">Login</h1>
           <br />
           <form onSubmit={handleSubmit}>
             <div className="form-inputs">
@@ -70,6 +70,7 @@ let handleSubmit = async (e) => {
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
+            <br />
             <div className="form-inputs">
               <TextField
                 className="form-inputs"

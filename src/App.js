@@ -7,6 +7,7 @@ import Temppassword from './components/LoginFunctions/Temppassword';
 import Resetconfirmed from './components/confimations/Resetconfirmed';
 import Forgotuser from './components/LoginFunctions/Forgotuser';
 import Resetconfirmed2 from './components/confimations/Resetconfirmed2';
+import RegistrationConfirmed from './components/confimations/Registrationconfirmed';
 import Usernameconfirm from './components/confimations/Usernameconfirm';
 import Logout from './components/LoginFunctions/Logout';
 import React, { useEffect, useState } from 'react';
@@ -69,6 +70,7 @@ function App() {
           
 
             <Routes>
+            <Route path="/" exact element={<Main />} />
               <Route path="/home" element={<Main />} />
               <Route path="/logout" element={<Logout />} />
 
@@ -106,6 +108,7 @@ function App() {
         <Route path="/resetconfirmed" element={<Resetconfirmed />} />
         <Route path="/resetconfirmed2" element={<Resetconfirmed2 />} />
         <Route path="/usernameconfirm" element={<Usernameconfirm />} />
+        <Route path="/RegistrationConfirmed" element={<RegistrationConfirmed />} />
         
         <Route path="/logout" element={<LoginHome />} />
         <Route path="/login" element={<Login onChange={handleChange} />} />

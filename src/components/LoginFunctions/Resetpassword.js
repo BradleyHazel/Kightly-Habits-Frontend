@@ -38,7 +38,7 @@ function Resetpassword() {
       <div className="form-content-right">
         <div>
           <br />
-        <h1 className="title  text-3xl text-white font-bold">Reset Password</h1>
+        <h1 className="title  text-2xl text-white font-bold">Reset Password</h1>
         <form onSubmit={handleSubmit}>
           <br />
 
