@@ -12,9 +12,9 @@ function LoginNav() {
   
   return (
 
-      <nav className="navbar h-screen justify-around bg-gradient-to-l from-slate-400 to-green-400">
+      <nav className="navbar h-screen justify-around bg-gradient-to-l from-slate-400 to-green-400 w-20 sm:w-40 md:w-40 lg:w-40 xl:w-40 2xl:w-40">
         <div className="navbar-container">
-          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+          <Link to="/" className="navbar-logo text-md sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl" onClick={closeMobileMenu}>
             Knightly Habits
           </Link>
           <div className="menu-icon" onClick={handleClick}>
@@ -55,7 +55,7 @@ function LoginNav() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Password/Username Recovery
+                Password and Username Recovery
               </Link>
             </li>
           </ul>
