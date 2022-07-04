@@ -31,7 +31,7 @@ function Logout() {
   return (
     <div className='container'>Logout
     <div className="container">
-        <img src="https://i.imgur.com/hPOPqz3.jpg"></img>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Wesnoth_shield.svg"></img>
       </div>
       </div>
   )

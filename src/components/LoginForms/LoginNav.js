@@ -12,7 +12,7 @@ function LoginNav() {
   
   return (
 
-      <nav className="navbar bg-gradient-to-t from-slate-400 to-green-400">
+      <nav className="navbar h-screen justify-around bg-gradient-to-t from-slate-400 to-green-400">
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             Knightly Habits

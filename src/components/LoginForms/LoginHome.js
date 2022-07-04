@@ -14,7 +14,7 @@ function LoginHome() {
     nav("/register");
   }
   return (
-    <div className="home-container ">
+    <div className="home-container h-screen">
       <h1 className="home-h1">Knightly Habits</h1>
       <h3 className="home-h3">
       Are you ready to RPGify your habits! Knightly Habits is here to help!

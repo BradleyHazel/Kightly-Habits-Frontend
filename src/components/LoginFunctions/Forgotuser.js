@@ -26,12 +26,14 @@ function Forgotuser() {
      }
 
   return (
-    <div className="form-container">
+    <div className="form-container w-screen">
       <div className="form-content-left">
-        <img className="form-img" src="https://i.imgur.com/hPOPqz3.jpg"></img>
+        <img className="form-img" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Wesnoth_shield.svg"></img>
       </div>
       <div className="form-content-right">
+        <div>
         <h1 className="title">Forgot Username</h1>
+        <br/>
         <form onSubmit={handleSubmit}>
           <TextField
             className="form-inputs"
@@ -60,7 +62,8 @@ function Forgotuser() {
             Submit
           </Button> */}
         </form>
-        <br />
+        </div>
+      
         <Temppassword />
       </div>
     </div>

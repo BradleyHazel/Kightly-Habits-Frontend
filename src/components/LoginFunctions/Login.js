@@ -51,12 +51,14 @@ let handleSubmit = async (e) => {
 
 
   return (
-      <div className="form-container">
+      <div className="form-container w-screen">
         <div className="form-content-left">
-          <img className="form-img" src="https://i.imgur.com/hPOPqz3.jpg"></img>
+          <img className="form-img" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Wesnoth_shield.svg"></img>
         </div>
         <div className="form-content-right">
+          <div>
           <h1 className="title">Login</h1>
+          <br />
           <form onSubmit={handleSubmit}>
             <div className="form-inputs">
               <TextField
@@ -97,6 +99,7 @@ let handleSubmit = async (e) => {
             </Button>
             </div> */}
           </form>
+          </div>
         </div>
       </div>
   );

@@ -31,11 +31,13 @@ function Resetpassword() {
      }
 
   return (
-    <div className="form-container">
+    <div className="form-container w-screen">
       <div className="form-content-left">
-        <img className="form-img" src="https://i.imgur.com/hPOPqz3.jpg"></img>
+        <img className="form-img" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Wesnoth_shield.svg"></img>
       </div>
       <div className="form-content-right">
+        <div>
+          <br />
         <h1 className="title">Reset Password</h1>
         <form onSubmit={handleSubmit}>
           <br />
@@ -88,6 +90,7 @@ function Resetpassword() {
             Submit
           </Button> */}
         </form>
+        </div>
       </div>
     </div>
   );

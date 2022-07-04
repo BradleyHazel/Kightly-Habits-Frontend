@@ -61,6 +61,7 @@ function App() {
  
   }
   return (
+    <div  className='flex'> 
     <AppContext.Provider value={userSettings}>
       {loggedIn ? (
         <div className="App">
@@ -78,7 +79,7 @@ function App() {
       ) : (
         <div >
           <LoginNav />
-          <div className="container"></div>
+    
           {/* <Link to="/register">
          Signup
         </Link>
@@ -110,6 +111,7 @@ function App() {
         <Route path="/login" element={<Login onChange={handleChange} />} />
       </Routes>
     </AppContext.Provider>
+    </div>
   );
 }
 
