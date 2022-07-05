@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Button, TextField } from '@mui/material';
+import React, { useState } from 'react';
+import { TextField } from '@mui/material';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
@@ -42,7 +42,7 @@ let handleSubmit = async (e) => {
             
       
 
-}) .catch((error) => {
+}).catch((error) => {
           
 });
    }
@@ -52,7 +52,7 @@ let handleSubmit = async (e) => {
 return (
   <div style={{boxShadow:"inset 0 0 0 1000px rgba(58, 88, 121, 0.547)"}}className="form-container w-screen ">
     <div className="form-content-left">
-      <img className="form-img hidden lg:block" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Wesnoth_shield.svg"></img>
+      <img alt="Crossed swords and a shield" className="form-img hidden lg:block" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Wesnoth_shield.svg"></img>
     </div>
     <div className="form-content-right">
       <div>

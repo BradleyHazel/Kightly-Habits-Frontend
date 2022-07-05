@@ -61,11 +61,6 @@ display:flex
 
 }
 
-.form-img {
-
-}
-
-
 .form-success {
   text-align: center;
   font-size: 24px;
@@ -142,8 +137,8 @@ display:flex
   border-radius: 2px;
   background: linear-gradient(
     90deg,
-    #DF9881 0%,
-    #F2D7B4 100%
+    #57cab1 0%,
+    #535cad 100%
   );
   outline: none;
   border: none;
@@ -155,8 +150,8 @@ display:flex
   cursor: pointer;
   background: linear-gradient(
     90deg,
-    #ECE6D2 0%,
-    #DF9881 100%
+    #57cab1 100%,
+    #535cad 24%
   );
   transition: all 0.4s ease-out;
 }
@@ -209,9 +204,6 @@ display:flex;
 flex-direction: column;
 }
 
-.nav-item {
-
-}
 
 .nav-links {
   color: #FFFFFA;

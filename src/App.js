@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, Link, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Login from './components/LoginFunctions/Login';
 import Register from './components/LoginFunctions/Register';
 import AppContext from './components/AppContext';
@@ -70,10 +70,13 @@ function App() {
           
 
             <Routes>
-            <Route path="/" exact element={<Main />} />
-              <Route path="/home" element={<Main />} />
+            <Route path="/" exact element={<Navigate to="/app" replace />} />
+              <Route path="/app" element={<Main />} />
               <Route path="/logout" element={<Logout />} />
-
+              <Route
+        path="*"
+        element={<Navigate to="/app" replace />}
+    />
       
             </Routes>
        
@@ -112,10 +115,8 @@ function App() {
         
         <Route path="/logout" element={<LoginHome />} />
         <Route path="/login" element={<Login onChange={handleChange} />} />
-        <Route
-        path="*"
-        element={<Navigate to="/" replace />}
-    />
+        <Route path="/start" exact element={<LoginHome />} />
+        
       </Routes>
     </AppContext.Provider>
     </div>

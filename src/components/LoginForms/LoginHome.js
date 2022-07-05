@@ -1,17 +1,16 @@
 import { Button } from '@mui/material';
 import React from 'react'
-import { Link } from 'react-router-dom';
-
 import { useNavigate } from "react-router-dom";
-
-
 
 function LoginHome() {
   
   const nav = useNavigate();
   
-  function handleClick(){
+  function handleClick1(){
     nav("/register");
+  }
+  function handleClick(){
+    nav("/login");
   }
   return (
     <div className="home-container h-screen ">
@@ -26,7 +25,13 @@ function LoginHome() {
       </div>
       <Button className="home-btn darker" onClick={handleClick}>
    
-                register
+   Login
+
+</Button>
+<br />
+      <Button className="home-btn darker" onClick={handleClick1}>
+   
+                Register
             
       </Button>
      

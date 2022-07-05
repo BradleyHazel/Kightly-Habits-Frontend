@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { Button, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 import Temppassword from './Temppassword';
 
@@ -28,7 +28,7 @@ function Forgotuser() {
   return (
     <div style={{boxShadow:"inset 0 0 0 1000px rgba(58, 88, 121, 0.547)"}} className="form-container w-screen">
       <div className="form-content-left">
-        <img className="form-img hidden lg:block" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Wesnoth_shield.svg"></img>
+        <img alt="Crossed swords and a shield" className="form-img hidden lg:block" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Wesnoth_shield.svg"></img>
       </div>
       <div className="form-content-right">
         <div>
