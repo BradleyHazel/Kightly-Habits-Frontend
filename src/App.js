@@ -72,7 +72,7 @@ function App() {
             <Routes>
             <Route path="/" exact element={<Navigate to="/app" replace />} />
               <Route path="/app" element={<Main />} />
-              <Route path="/logout" element={<Logout />} />
+              <Route path="/logout" element={<LoginHome />} />
               <Route
         path="*"
         element={<Navigate to="/app" replace />}
@@ -84,22 +84,7 @@ function App() {
       ) : (
         <div >
           <LoginNav />
-    
-          {/* <Link to="/register">
-         Signup
-        </Link>
-        <Link to="/login">
-          Login
-        </Link>
-        <Link to="/forgot">
-          Forgot Password
-        </Link>
-        <Link to="/forgotuser">
-          Forgot Username
-        </Link>
-        <Link to="/resetpassword">
-          Reset Password
-        </Link> */}
+  
         </div>
       )}
       <Routes>
