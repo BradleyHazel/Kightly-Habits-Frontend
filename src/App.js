@@ -72,7 +72,7 @@ function App() {
             <Routes>
             <Route path="/" exact element={<Navigate to="/app" replace />} />
               <Route path="/app" element={<Main />} />
-              <Route path="/logout" element={<LoginHome />} />
+              <Route path="/logout" element={<Logout />} />
               <Route
         path="*"
         element={<Navigate to="/app" replace />}

@@ -2,13 +2,14 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useContext } from "react";
 
+import { useNavigate } from "react-router-dom";
 import AppContext from "../AppContext";
 
 axios.defaults.withCredentials = true;
 
 
 function Logout() {
-  
+  const nav = useNavigate();
   const myContext = useContext(AppContext);
 
     useEffect(() => {
@@ -19,7 +20,7 @@ function Logout() {
          console.log(res)
          myContext.setLoggedIn(false)
        // window.location.reload(true);
-       // nav("/");
+        nav("/login");
         })
         .catch((error) => {
           console.log(error)
@@ -27,9 +28,7 @@ function Logout() {
     }, []);
   return (
     <div className='container'>Logout
-    <div className="container">
-        <img alt="Crossed swords and a shield" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Wesnoth_shield.svg"></img>
-      </div>
+ 
       </div>
   )
 }
