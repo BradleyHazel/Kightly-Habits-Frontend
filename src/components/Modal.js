@@ -8,6 +8,7 @@ import { useContext } from "react";
 
 import { TextField } from '@mui/material';
 import axios from "axios"
+import Knight from "./Knight"
 
 const style = {
   position: 'absolute',
@@ -32,7 +33,7 @@ const style = {
   
     const myContext = useContext(AppContext);
 
-
+ 
     let handleSubmit = async (e) => {
         e.preventDefault();
     
@@ -44,13 +45,35 @@ const style = {
             completedToday:false
   }).then((res)=>{
              console.log(res);
+         
+             
+             refreshKnights()
              handleClose()
              setName("")
              setDesc("")
   })}
 
+function refreshKnights(){
+  let url = "http://localhost:8001/";
+  fetch(url, {'credentials': 'include'},) //<-- the url as a string
+// Wait for the response and convert it to json
+.then(res => res.json())
+// Take the json and do something with it
+.then(json => {
+  let knightArr =mapKnights(json)
+  myContext.setKnights(knightArr);
 
+}).catch(console.error);
+}
 
+function mapKnights(knightArr){
+
+    let knightMap = knightArr.map((knight1,index) => {
+      
+     return <Knight key={index}  data={knight1}  />
+    })
+  return knightMap
+  }
  
   return (
     <div>

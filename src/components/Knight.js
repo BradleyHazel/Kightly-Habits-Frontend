@@ -3,7 +3,29 @@ import React, { useCallback, useRef } from "react";
 import ReactCanvasConfetti from "react-canvas-confetti";
 
 
-function Knight() {
+function Knight(props) {
+
+  function levelCalculator (exp){
+    if(exp<100){
+      return 1
+    }
+    else if(exp<200){
+      return 2
+    }
+    else if(exp<300){
+      return 3
+    }
+    else{
+      return 4
+    }
+    
+  }
+
+  let level = levelCalculator(props.data.expPoints)
+  let exp = props.data.expPoints
+  while(exp>100){
+    exp=exp-100
+  }
   const canvasStyles = {
     position: "fixed",
     pointerEvents: "none",
@@ -73,9 +95,10 @@ function Knight() {
       <div  style={{ display:"flex", flexDirection:"column", justifyContent:"space-evenly"}} className="max-w-sm rounded overflow-hidden shadow-lg">
         <img  src={'https://opengameart.org/sites/default/files/BronzeKnight.gif'} />
         <div class="px-6 py-4 bg-gradient-to-tr from-purple-400 to-slate-500 ">
-          <div class="font-bold text-xl mb-2">Bronze Knight of Habit Name</div>
-          <div class="text-xl mb-2" >Level: 1</div>
-          <ProgressBar completed={25} bgColor={"#0072bb"} />
+          <div class="font-bold text-xl mb-2">Bronze Knight of {props.data.name}</div>
+          <div class="text-xl mb-2" >Level: {level}</div>
+          <div>EXP</div>
+          <ProgressBar completed={exp} bgColor={"#0072bb"} />
      
           <button style={{}} class="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold border border-blue-700 rounded">
           Quest details 
