@@ -4,17 +4,16 @@ import Knight from './Knight'
 function Main() {
   return (
     <div className="" style={{display: "flex"}}>
+        
         <Sidebar />
-        <div  className="flex flex-row justify-evenly items-center	overflow-scroll	flex-wrap	 h-screen w-auto  bg-gradient-to-tr from-slate-300 to-green-300 ">
+        <div style={{	width: "90vw"}} className="flex flex-row justify-evenly items-center overflow-scroll	flex-wrap	 h-screen bg-gradient-to-tr from-slate-300 to-green-300 ">
         <Knight />
         <Knight />
         <Knight />
         <Knight />
         <Knight />
-        <Knight />
-        <Knight />
-        <Knight />
-        <Knight />
+
+   
         
         </div>
         

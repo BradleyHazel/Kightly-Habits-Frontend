@@ -67,6 +67,7 @@ let handleSubmit = async (e) => {
           <form onSubmit={handleSubmit}>
             <div className="form-inputs">
               <TextField
+                required
                 className="form-inputs"
                 id="outlined-static"
                 label="Username"
@@ -78,6 +79,7 @@ let handleSubmit = async (e) => {
             <br />
             <div className="form-inputs">
               <TextField
+                required
                 className="form-inputs"
                 id="outlined-static"
                 label="password"

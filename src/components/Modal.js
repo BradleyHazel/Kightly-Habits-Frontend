@@ -1,0 +1,111 @@
+import React, { useState } from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import AppContext from "./AppContext";
+import { useContext } from "react";
+
+import { TextField } from '@mui/material';
+import axios from "axios"
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
+ function BasicModal() {
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const [name, setName] = useState("");
+    const [desc, setDesc] = useState("");
+  
+    const myContext = useContext(AppContext);
+
+
+    let handleSubmit = async (e) => {
+        e.preventDefault();
+    
+        axios.post('http://localhost:8001/add', {
+            user: myContext.user,
+            name: name,
+            desc: desc,
+            expPoints: 0,
+            completedToday:false
+  }).then((res)=>{
+             console.log(res);
+             handleClose()
+             setName("")
+             setDesc("")
+  })}
+
+
+
+ 
+  return (
+    <div>
+         <button onClick={handleOpen} class="w-full block text-white bg-blue-500 hover:bg-blue-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold " type="button" data-modal-toggle="add-modal">
+                  Add Knight
+                </button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+      >
+        <Box sx={style}>
+            <div className="flex flex-col">
+            <h1 className="title text-2xl font-bold ">Add a new Habit Knight</h1>
+                <br />
+        <img  src={'https://opengameart.org/sites/default/files/BronzeKnight.gif'} />
+        <br />
+        <form onSubmit={handleSubmit}>
+            <div className="form-inputs">
+              <TextField
+                required
+                className="form-inputs"
+                id="outlined-static"
+                label="Name"
+                value={name}
+               
+                placeholder="Habit name"
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <br />
+            <div className="form-inputs">
+              <TextField
+                className="form-inputs"
+                id="outlined-static"
+                label="Description"
+                value={desc}
+                placeholder="Description"
+                onChange={(e) => setDesc(e.target.value)}
+              />
+            </div>
+            <div className="flex">
+            <button onClick={handleClose} className="w-full block text-white bg-red-500 hover:bg-red-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold" type="submit">
+              Close
+            </button>
+            <button className="w-full block text-white bg-blue-500 hover:bg-blue-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold" type="submit">
+              Add New Knight
+            </button>
+            </div>
+       
+          </form>
+          </div>
+        </Box>
+      </Modal>
+    </div>
+  );
+}
+
+export default BasicModal
