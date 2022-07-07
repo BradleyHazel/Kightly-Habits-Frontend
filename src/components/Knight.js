@@ -11,7 +11,9 @@ function Knight(props) {
 
   const [knightLvl, setknightLvl] = useState(level);
   const [checkValue,setcheckValue] =useState(props.data.completedToday)
+  const [knightXPTotal, setknightXPTotal] = useState(props.data.expPoints);
 
+ 
   function levelCalculator (exp){
     if(exp<100){
       return 1
@@ -33,7 +35,9 @@ function Knight(props) {
   while(exp>=100){
     exp=exp-100
   }
-  const [knightExp, setknightExp] = useState(exp);
+  const [knightShowXP, setknightShowXP] = useState(exp);
+
+
   const canvasStyles = {
     position: "fixed",
     pointerEvents: "none",
@@ -93,17 +97,24 @@ function Knight(props) {
   }, [makeShot]);
 
   function decidedFire (e){
-    console.log(e.currentTarget.id)
-    
-    if(e.target.checked){
-    fire()
-    let expNew = knightExp + 25
-    setknightExp(expNew)
-    setcheckValue(true)
+    if(checkValue == true){
+    let expNew = knightXPTotal - 25
+    setknightXPTotal(expNew)
+    setcheckValue(false)
+    level = levelCalculator(knightXPTotal-25)
+    setknightLvl(level)
+
+    exp = knightXPTotal -25
+    while(exp>=100){
+      exp=exp-100
+    }
+    setknightShowXP(exp)
+    let shift = knightXPTotal -25
+
     axios.put('http://localhost:8001/'+e.currentTarget.id, {
       
-      expPoints:expNew,
-      completedToday:true
+      expPoints:shift,
+      completedToday:false
   
     })
     .then((response) => {
@@ -113,14 +124,24 @@ function Knight(props) {
     })}
 
     else{
-      let expNew = knightExp - 25
-      setknightExp(expNew)
-      setcheckValue(false)
+      fire()
+      let expNew = knightXPTotal + 25
+      setknightXPTotal(expNew)
+      setcheckValue(true)
+      level = levelCalculator(knightXPTotal+25)
+      setknightLvl(level)
+  
+      exp = knightXPTotal +25
+      while(exp>=100){
+        exp=exp-100
+      }
+      setknightShowXP(exp)
+      let shift = knightXPTotal +25
 
       axios.put('http://localhost:8001/'+e.currentTarget.id, {
       
-        expPoints:expNew,
-        completedToday:false
+        expPoints:shift,
+        completedToday:true
     
       })
       .then((response) => {
@@ -140,7 +161,8 @@ function Knight(props) {
           <div class="font-bold text-xl mb-2">Bronze Knight of {props.data.name}</div>
           <div class="text-xl mb-2" >Level: {knightLvl}</div>
           <div>EXP</div>
-          <ProgressBar completed={knightExp} bgColor={"#0072bb"} />
+          <div>Total: {knightXPTotal}</div>
+          <ProgressBar completed={knightShowXP} bgColor={"#0072bb"} />
      
           <button style={{}} class="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold border border-blue-700 rounded">
           Quest details 
