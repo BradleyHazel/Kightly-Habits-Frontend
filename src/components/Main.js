@@ -32,7 +32,7 @@ function Main() {
 
     let knightMap = knightArr.map((knight,index) => {
       
-     return <Knight key={index}  data={knight}  />
+     return <Knight id={knight._id} key={knight._id}  data={knight}  />
     })
   return knightMap
   }

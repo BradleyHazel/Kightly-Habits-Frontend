@@ -1,18 +1,25 @@
 import ProgressBar from "@ramonak/react-progress-bar";
-import React, { useCallback, useRef } from "react";
+import React, {useState, useCallback, useRef } from "react";
 import ReactCanvasConfetti from "react-canvas-confetti";
+import axios from 'axios';
 
+axios.defaults.withCredentials = true;
 
 function Knight(props) {
+
+  let level = levelCalculator(props.data.expPoints)
+
+  const [knightLvl, setknightLvl] = useState(level);
+  const [checkValue,setcheckValue] =useState(props.data.completedToday)
 
   function levelCalculator (exp){
     if(exp<100){
       return 1
     }
-    else if(exp<200){
+    else if(exp<=200){
       return 2
     }
-    else if(exp<300){
+    else if(exp<=300){
       return 3
     }
     else{
@@ -21,11 +28,12 @@ function Knight(props) {
     
   }
 
-  let level = levelCalculator(props.data.expPoints)
+  
   let exp = props.data.expPoints
-  while(exp>100){
+  while(exp>=100){
     exp=exp-100
   }
+  const [knightExp, setknightExp] = useState(exp);
   const canvasStyles = {
     position: "fixed",
     pointerEvents: "none",
@@ -85,8 +93,42 @@ function Knight(props) {
   }, [makeShot]);
 
   function decidedFire (e){
+    console.log(e.currentTarget.id)
+    
     if(e.target.checked){
     fire()
+    let expNew = knightExp + 25
+    setknightExp(expNew)
+    setcheckValue(true)
+    axios.put('http://localhost:8001/'+e.currentTarget.id, {
+      
+      expPoints:expNew,
+      completedToday:true
+  
+    })
+    .then((response) => {
+     
+  console.log(response)
+
+    })}
+
+    else{
+      let expNew = knightExp - 25
+      setknightExp(expNew)
+      setcheckValue(false)
+
+      axios.put('http://localhost:8001/'+e.currentTarget.id, {
+      
+        expPoints:expNew,
+        completedToday:false
+    
+      })
+      .then((response) => {
+       
+    console.log(response)
+  
+      })
+
     }
   }
 
@@ -96,16 +138,17 @@ function Knight(props) {
         <img  src={'https://opengameart.org/sites/default/files/BronzeKnight.gif'} />
         <div class="px-6 py-4 bg-gradient-to-tr from-purple-400 to-slate-500 ">
           <div class="font-bold text-xl mb-2">Bronze Knight of {props.data.name}</div>
-          <div class="text-xl mb-2" >Level: {level}</div>
+          <div class="text-xl mb-2" >Level: {knightLvl}</div>
           <div>EXP</div>
-          <ProgressBar completed={exp} bgColor={"#0072bb"} />
+          <ProgressBar completed={knightExp} bgColor={"#0072bb"} />
      
           <button style={{}} class="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold border border-blue-700 rounded">
           Quest details 
                 </button>
           <div class="text-md mb-2">Quest Completed Today?</div>
           
-          <input onClick={decidedFire} type="checkbox" />
+          
+          <input id={props.data._id} onClick={decidedFire} type="checkbox" checked={checkValue}/>
           <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
         </div>
       
