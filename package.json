@@ -6,6 +6,7 @@
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@material-tailwind/react": "^1.0.6",
+    "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.6",
     "@ramonak/react-progress-bar": "^5.0.1",
     "@testing-library/jest-dom": "^5.16.4",

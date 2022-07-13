@@ -1,6 +1,7 @@
 import ProgressBar from "@ramonak/react-progress-bar";
 import React, {useState, useCallback, useRef } from "react";
 import ReactCanvasConfetti from "react-canvas-confetti";
+import CloseIcon from '@mui/icons-material/Close';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 
@@ -257,6 +258,9 @@ function Knight(props) {
       >
         <Box sx={style}>
             <div className="flex flex-col">
+              <div className="flex justify-end">
+            <CloseIcon style={{cursor: "pointer"}} onClick={handleClose}  />
+            </div>
             <h1 className="title text-2xl font-bold ">Update the {knightTitle} Knight of {name}</h1>
                 <br />
         <img  src={knightImg} />
@@ -286,8 +290,8 @@ function Knight(props) {
               />
             </div>
             <div className="flex">
-            <button onClick={handleClose} className="w-full block text-white bg-red-500 hover:bg-red-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold" type="submit">
-              Close
+            <button className="w-full block text-white bg-red-500 hover:bg-red-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold" >
+              Delete
             </button>
             <button className="w-full block text-white bg-blue-500 hover:bg-blue-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold" type="submit">
               Update Knight
