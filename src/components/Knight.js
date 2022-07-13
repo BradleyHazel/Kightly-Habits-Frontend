@@ -8,26 +8,54 @@ axios.defaults.withCredentials = true;
 function Knight(props) {
 
   let level = levelCalculator(props.data.expPoints)
-
+  let knightPicture = pickKnightImg(level)
+  let title = pickKnightTitle(level)
   const [knightLvl, setknightLvl] = useState(level);
   const [checkValue,setcheckValue] =useState(props.data.completedToday)
   const [knightXPTotal, setknightXPTotal] = useState(props.data.expPoints);
+  const [knightTitle, setknightTitle] = useState(title);
 
- 
+
+  const [knightImg, setknightImg] = useState(knightPicture);
   function levelCalculator (exp){
-    if(exp<100){
-      return 1
+    return Math.floor(exp/100)
+  
+  }
+
+  function pickKnightImg (level){
+    if(level <= 0){
+      return "https://opengameart.org/sites/default/files/BronzeKnight.gif"
     }
-    else if(exp<=200){
-      return 2
+    else if (level ==1){
+      return "https://opengameart.org/sites/default/files/BlackKnight.gif"
     }
-    else if(exp<=300){
-      return 3
+    else if (level ==2){
+      return "https://opengameart.org/sites/default/files/MitheralKnight.gif"
     }
-    else{
-      return 4
+    else if (level ==3){
+      return "https://opengameart.org/sites/default/files/AdamantKnight.gif"
+    }
+    else if(level >= 4){
+      return "https://opengameart.org/sites/default/files/GoldKnight.gif"
     }
     
+  }
+  function pickKnightTitle (level){
+    if(level == 0){
+      return "Bronze"
+    }
+    else if (level ==1){
+      return "Black"
+    }
+    else if (level ==2){
+      return "Mitheral"
+    }
+    else if (level ==3){
+      return "Adamant"
+    }
+    else if (level ==4){
+      return "Gold"
+    }
   }
 
   
@@ -101,8 +129,15 @@ function Knight(props) {
     let expNew = knightXPTotal - 25
     setknightXPTotal(expNew)
     setcheckValue(false)
+
     level = levelCalculator(knightXPTotal-25)
     setknightLvl(level)
+
+    title = pickKnightTitle(level)
+    setknightTitle(title)
+
+    knightPicture = pickKnightImg(level)
+    setknightImg(knightPicture)
 
     exp = knightXPTotal -25
     while(exp>=100){
@@ -124,13 +159,22 @@ function Knight(props) {
     })}
 
     else{
-      fire()
       let expNew = knightXPTotal + 25
       setknightXPTotal(expNew)
       setcheckValue(true)
+      let oldLevel = knightLvl
       level = levelCalculator(knightXPTotal+25)
+
+      knightPicture = pickKnightImg(level)
+      setknightImg(knightPicture)
+
+      title = pickKnightTitle(level)
+      setknightTitle(title)
+      
       setknightLvl(level)
-  
+      if(level>oldLevel){
+        fire()
+      }
       exp = knightXPTotal +25
       while(exp>=100){
         exp=exp-100
@@ -156,9 +200,9 @@ function Knight(props) {
   return (
     <aside class="p-2 sm:p-4 md:p-4 lg:p-6 w-5/6 sm:w-1/2 md:w-2/5 lg:w-1/4 xl:w-1/4 2xl:w-1/6 m-5 ">  
       <div  style={{ display:"flex", flexDirection:"column", justifyContent:"space-evenly"}} className="max-w-sm rounded overflow-hidden shadow-lg">
-        <img  src={'https://opengameart.org/sites/default/files/BronzeKnight.gif'} />
+        <img  src={knightImg} />
         <div class="px-6 py-4 bg-gradient-to-tr from-purple-400 to-slate-500 ">
-          <div class="font-bold text-xl mb-2">Bronze Knight of {props.data.name}</div>
+          <div class="font-bold text-lg mb-2">{knightTitle} Knight of {props.data.name}</div>
           <div class="text-xl mb-2" >Level: {knightLvl}</div>
           <div>EXP</div>
           <div>Total: {knightXPTotal}</div>
