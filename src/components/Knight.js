@@ -1,11 +1,37 @@
 import ProgressBar from "@ramonak/react-progress-bar";
 import React, {useState, useCallback, useRef } from "react";
 import ReactCanvasConfetti from "react-canvas-confetti";
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+
+import { TextField } from '@mui/material';
 import axios from 'axios';
 
 axios.defaults.withCredentials = true;
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 function Knight(props) {
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [name, setName] = useState(props.data.name);
+  const [desc, setDesc] = useState(props.data.desc);
+
+  const [newName, setnewName] = useState(props.data.name);
+  const [newDesc, setnewDesc] = useState(props.data.desc);
+
+  
 
   let level = levelCalculator(props.data.expPoints)
   let knightPicture = pickKnightImg(level)
@@ -21,6 +47,20 @@ function Knight(props) {
     return Math.floor(exp/100)
   
   }
+
+  let handleSubmit = async (e) => {
+    e.preventDefault();
+    axios.put('http://localhost:8001/'+props.data._id, {
+        name: newName,
+        desc: newDesc,
+}).then((res)=>{
+         console.log(res);
+  
+         
+         handleClose()
+         setName(newName)
+         setDesc(newDesc)
+})}
 
   function pickKnightImg (level){
     if(level <= 0){
@@ -202,15 +242,63 @@ function Knight(props) {
       <div  style={{ display:"flex", flexDirection:"column", justifyContent:"space-evenly"}} className="max-w-sm rounded overflow-hidden shadow-lg">
         <img  src={knightImg} />
         <div class="px-6 py-4 bg-gradient-to-tr from-purple-400 to-slate-500 ">
-          <div class="font-bold text-lg mb-2">{knightTitle} Knight of {props.data.name}</div>
+          <div class="font-bold text-lg mb-2">{knightTitle} Knight of {name}</div>
           <div class="text-xl mb-2" >Level: {knightLvl}</div>
           <div>EXP</div>
           <div>Total: {knightXPTotal}</div>
           <ProgressBar completed={knightShowXP} bgColor={"#0072bb"} />
-     
-          <button style={{}} class="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold border border-blue-700 rounded">
-          Quest details 
+
+          <button onClick={handleOpen} class="w-full block text-white bg-blue-500 hover:bg-blue-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold " type="button" data-modal-toggle="add-modal">
+          Quest details
                 </button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+      >
+        <Box sx={style}>
+            <div className="flex flex-col">
+            <h1 className="title text-2xl font-bold ">Update the {knightTitle} Knight of {name}</h1>
+                <br />
+        <img  src={knightImg} />
+        <br />
+        <form onSubmit={handleSubmit}>
+            <div className="form-inputs">
+              <TextField
+                required
+                className="form-inputs"
+                id="outlined-static"
+                label="Name"
+                value={newName}
+               
+                placeholder="Habit name"
+                onChange={(e) => setnewName(e.target.value)}
+              />
+            </div>
+            <br />
+            <div className="form-inputs">
+              <TextField
+                className="form-inputs"
+                id="outlined-static"
+                label="Description"
+                value={newDesc}
+                placeholder="Description"
+                onChange={(e) => setnewDesc(e.target.value)}
+              />
+            </div>
+            <div className="flex">
+            <button onClick={handleClose} className="w-full block text-white bg-red-500 hover:bg-red-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold" type="submit">
+              Close
+            </button>
+            <button className="w-full block text-white bg-blue-500 hover:bg-blue-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold" type="submit">
+              Update Knight
+            </button>
+            </div>
+       
+          </form>
+          </div>
+        </Box>
+      </Modal>
+     
           <div class="text-md mb-2">Quest Completed Today?</div>
           
           
