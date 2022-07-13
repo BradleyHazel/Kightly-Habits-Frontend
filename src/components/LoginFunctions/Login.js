@@ -5,8 +5,9 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import AppContext from "../AppContext";
-axios.defaults.withCredentials = true;
 
+import picture from "../../assets/Wesnoth_shield.svg"
+axios.defaults.withCredentials = true;
 
 function Login() {
   
@@ -58,7 +59,7 @@ let handleSubmit = async (e) => {
   return (
       <div style={{boxShadow:"inset 0 0 0 1000px rgba(58, 88, 121, 0.547)"}} className="form-container w-screen">
         <div className="form-content-left">
-          <img alt='Crossed swords and a shield' className="form-img hidden lg:block" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Wesnoth_shield.svg"></img>
+          <img alt='Crossed swords and a shield' className="form-img hidden lg:block" src={picture}></img>
         </div>
         <div className="form-content-right">
           <div>
