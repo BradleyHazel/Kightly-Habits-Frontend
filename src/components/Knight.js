@@ -5,6 +5,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 
+import { useContext } from "react";
+import AppContext from "./AppContext";
 import { TextField } from '@mui/material';
 import axios from 'axios';
 
@@ -23,11 +25,16 @@ const style = {
 
 function Knight(props) {
 
+  
+  const myContext = useContext(AppContext);
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {setOpen(false); let msg3 = "Delete";
+  setdeleteMsg(msg3);};
   const [name, setName] = useState(props.data.name);
   const [desc, setDesc] = useState(props.data.desc);
+  const [deleteMsg, setdeleteMsg] = useState("Delete");
 
   const [newName, setnewName] = useState(props.data.name);
   const [newDesc, setnewDesc] = useState(props.data.desc);
@@ -47,6 +54,19 @@ function Knight(props) {
   function levelCalculator (exp){
     return Math.floor(exp/100)
   
+  }
+
+  function refreshKnights(){
+    let url = "http://localhost:8001/";
+    fetch(url, {'credentials': 'include'},) //<-- the url as a string
+  // Wait for the response and convert it to json
+  .then(res => res.json())
+  // Take the json and do something with it
+  .then(json => {
+    let knightArr =mapKnights(json)
+    myContext.setKnights(knightArr);
+  
+  }).catch(console.error);
   }
 
   let handleSubmit = async (e) => {
@@ -99,6 +119,14 @@ function Knight(props) {
     }
   }
 
+  function mapKnights(knightArr){
+
+    let knightMap = knightArr.map((knight1,index) => {
+      
+     return <Knight key={index}  data={knight1}  />
+    })
+  return knightMap
+  }
   
   let exp = props.data.expPoints
   while(exp>=100){
@@ -164,6 +192,26 @@ function Knight(props) {
       startVelocity: 45
     });
   }, [makeShot]);
+
+  function checkDelete(){
+    console.log(123)
+    if(deleteMsg == "Delete"){
+      let msg ="Are you sure?"
+      setdeleteMsg(msg)
+    }
+    else if(deleteMsg =="Are you sure?"){
+      let msg2 = "Delete";
+      setdeleteMsg(msg2);
+      axios.delete('http://localhost:8001/'+props.data._id)
+      .then((response) => {
+       
+        refreshKnights().then(()=>{ handleClose()})
+       
+    
+
+      })
+    }
+  }
 
   function decidedFire (e){
     if(checkValue == true){
@@ -290,15 +338,17 @@ function Knight(props) {
               />
             </div>
             <div className="flex">
-            <button className="w-full block text-white bg-red-500 hover:bg-red-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold" >
-              Delete
-            </button>
             <button className="w-full block text-white bg-blue-500 hover:bg-blue-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold" type="submit">
               Update Knight
             </button>
             </div>
        
-          </form>
+       </form>
+            <button onClick={checkDelete} className="w-full block text-white bg-red-500 hover:bg-red-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold" >
+              {deleteMsg}
+            </button>
+           
+          
           </div>
         </Box>
       </Modal>
