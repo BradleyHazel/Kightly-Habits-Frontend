@@ -37,7 +37,7 @@ const style = {
     let handleSubmit = async (e) => {
         e.preventDefault();
     
-        axios.post('http://localhost:8001/add', {
+        axios.post('https://knightly-habits.herokuapp.com/add', {
             user: myContext.user,
             name: name,
             desc: desc,
@@ -54,7 +54,7 @@ const style = {
   })}
 
 function refreshKnights(){
-  let url = "http://localhost:8001/";
+  let url = "https://knightly-habits.herokuapp.com/";
   fetch(url, {'credentials': 'include'},) //<-- the url as a string
 // Wait for the response and convert it to json
 .then(res => res.json())

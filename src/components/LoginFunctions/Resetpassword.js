@@ -20,7 +20,7 @@ function Resetpassword() {
   let handleSubmit = async (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:8001/reset' , {
+    axios.post('https://knightly-habits.herokuapp.com/reset' , {
       username: username,
       oldpassword: oldpassword,
       newpassword: newpassword,

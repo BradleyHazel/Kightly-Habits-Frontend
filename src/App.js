@@ -35,7 +35,7 @@ function App() {
   };
 
 
-  axios.get('http://localhost:8001/user')
+  axios.get('https://knightly-habits.herokuapp.com/user')
   .then(res => {
     console.log(res.data._id)
     if(res.data._id){
@@ -51,7 +51,7 @@ function App() {
 
   
 
-    axios.get('http://localhost:8001/checkAuthentication')
+    axios.get('https://knightly-habits.herokuapp.com/checkAuthentication')
       .then(res => {
         setLoggedIn(res.data.authenticated);
      

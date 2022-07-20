@@ -26,14 +26,14 @@ const [password, setPassword] = useState("");
 let handleSubmit = async (e) => {
   e.preventDefault();
 
-  axios.post('http://localhost:8001/register' , {
+  axios.post('https://knightly-habits.herokuapp.com/register' , {
     username: username,
     email: email,
     password: password,
    }).then((res)=>{
        console.log(res);
        
-       axios.get('http://localhost:8001/checkAuthentication')
+       axios.get('https://knightly-habits.herokuapp.com/checkAuthentication')
        .then(res => {
           myContext.setLoggedIn(res.data.authenticated);
           nav("/home");

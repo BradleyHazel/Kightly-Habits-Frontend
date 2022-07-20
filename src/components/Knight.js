@@ -57,7 +57,7 @@ function Knight(props) {
   }
 
   function refreshKnights(){
-    let url = "http://localhost:8001/";
+    let url = "https://knightly-habits.herokuapp.com/";
     fetch(url, {'credentials': 'include'},) //<-- the url as a string
   // Wait for the response and convert it to json
   .then(res => res.json())
@@ -71,7 +71,7 @@ function Knight(props) {
 
   let handleSubmit = async (e) => {
     e.preventDefault();
-    axios.put('http://localhost:8001/'+props.data._id, {
+    axios.put('https://knightly-habits.herokuapp.com/'+props.data._id, {
         name: newName,
         desc: newDesc,
 }).then((res)=>{
@@ -202,7 +202,7 @@ function Knight(props) {
     else if(deleteMsg =="Are you sure?"){
       let msg2 = "Delete";
       setdeleteMsg(msg2);
-      axios.delete('http://localhost:8001/'+props.data._id)
+      axios.delete('https://knightly-habits.herokuapp.com/'+props.data._id)
       .then((response) => {
        
         refreshKnights().then(()=>{ handleClose()})
@@ -235,7 +235,7 @@ function Knight(props) {
     setknightShowXP(exp)
     let shift = knightXPTotal -25
 
-    axios.put('http://localhost:8001/'+e.currentTarget.id, {
+    axios.put('https://knightly-habits.herokuapp.com/'+e.currentTarget.id, {
       
       expPoints:shift,
       completedToday:false
@@ -271,7 +271,7 @@ function Knight(props) {
       setknightShowXP(exp)
       let shift = knightXPTotal +25
 
-      axios.put('http://localhost:8001/'+e.currentTarget.id, {
+      axios.put('https://knightly-habits.herokuapp.com/'+e.currentTarget.id, {
       
         expPoints:shift,
         completedToday:true

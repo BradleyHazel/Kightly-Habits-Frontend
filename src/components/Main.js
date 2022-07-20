@@ -13,7 +13,7 @@ function Main() {
 
   useEffect(() => {
     
-    let url = "http://localhost:8001/";
+    let url = "https://knightly-habits.herokuapp.com/";
     fetch(url, {'credentials': 'include'},) //<-- the url as a string
   // Wait for the response and convert it to json
   .then(res => res.json())

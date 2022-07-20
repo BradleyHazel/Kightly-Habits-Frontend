@@ -15,7 +15,7 @@ function Logout() {
     useEffect(() => {
 
       
-        axios.get('http://localhost:8001/logout')
+        axios.get('https://knightly-habits.herokuapp.com/logout')
         .then(res => {
          console.log(res)
          myContext.setLoggedIn(false)
