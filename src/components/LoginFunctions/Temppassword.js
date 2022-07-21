@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { Button, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 
 
@@ -36,7 +36,6 @@ function Temppassword() {
         <TextField
           className="form-inputs"
           id="outlined-static"
-          label="Username"
           value={username}
           placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
@@ -47,7 +46,6 @@ function Temppassword() {
         <TextField
           className="form-inputs"
           id="outlined-static"
-          label="Email"
           type="email"
           value={email}
           placeholder="Email"

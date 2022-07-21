@@ -66,7 +66,6 @@ return (
         <TextField
           className="form-inputs"
           id="outlined-static"
-          label="Username"
           value={username}
           placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
@@ -77,7 +76,6 @@ return (
         <TextField
           className="form-inputs"
           id="outlined-static"
-          label="Email"
           type="email"
           value={email}
           placeholder="Email"
@@ -89,7 +87,6 @@ return (
         <TextField
           className="form-inputs"
           id="outlined-static"
-          label="password"
           type="password"
           value={password}
           placeholder="Password"

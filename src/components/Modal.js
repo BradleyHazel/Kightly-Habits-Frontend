@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import AppContext from "./AppContext";
 import { useContext } from "react";
@@ -78,7 +76,7 @@ function mapKnights(knightArr){
  
   return (
     <div>
-         <button onClick={handleOpen} class="w-full block text-white bg-blue-500 hover:bg-blue-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold " type="button" data-modal-toggle="add-modal">
+         <button onClick={handleOpen} className="w-full block text-white bg-blue-500 hover:bg-blue-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold " type="button" data-modal-toggle="add-modal">
                   Add Knight
                 </button>
       <Modal
@@ -92,7 +90,7 @@ function mapKnights(knightArr){
             <div className="flex flex-col">
             <h1 className="title text-2xl font-bold ">Add a new Habit Knight</h1>
                 <br />
-        <img  src={'https://opengameart.org/sites/default/files/BronzeKnight.gif'} />
+        <img  src={require('../assets/Bronze.gif')} alt="Bronze Knight"/>
         <br />
         <form onSubmit={handleSubmit} className="flex flex-col">
             <div className="form-inputs flex flex-col">

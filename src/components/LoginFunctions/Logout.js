@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useContext } from "react";
 
 import AppContext from "../AppContext";
 
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 axios.defaults.withCredentials = true;
 
 
 function Logout() {
   
   const myContext = useContext(AppContext);
-  const nav = useNavigate();
+  // const nav = useNavigate();
 
     useEffect(() => {
 

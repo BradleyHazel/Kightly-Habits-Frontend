@@ -71,7 +71,6 @@ let handleSubmit = async (e) => {
                 required
                 className="form-inputs"
                 id="outlined-static"
-                label="Username"
                 value={username}
                 placeholder="Username"
                 onChange={(e) => setUsername(e.target.value)}
@@ -83,7 +82,6 @@ let handleSubmit = async (e) => {
                 required
                 className="form-inputs"
                 id="outlined-static"
-                label="password"
                 type="password"
                 value={password}
                 placeholder="Password"

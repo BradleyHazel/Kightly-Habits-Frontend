@@ -40,7 +40,6 @@ function Forgotuser() {
           <TextField
             className="form-inputs"
             id="outlined-static"
-            label="Email"
             type="email"
             value={email}
             placeholder="Email"
@@ -51,18 +50,6 @@ function Forgotuser() {
           <button className="form-input-btn" type="submit">
           Submit
           </button>
-          {/* <Button
-            className="form-inputs"
-            type="submit"
-            variant="outlined"
-            sx={{
-              color: "black",
-              backgroundColor: "white",
-              borderColor: "purple",
-            }}
-          >
-            Submit
-          </Button> */}
         </form>
         </div>
       

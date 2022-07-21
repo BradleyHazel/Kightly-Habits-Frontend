@@ -47,7 +47,6 @@ function Resetpassword() {
           <TextField
             className="form-inputs"
             id="outlined-static"
-            label="Username"
             value={username}
             placeholder="Username"
             onChange={(e) => setUsername(e.target.value)}
@@ -59,7 +58,6 @@ function Resetpassword() {
             className="form-inputs"
             id="outlined-static"
             type="password"
-            label="Old Password"
             value={oldpassword}
             placeholder="Old Password"
             onChange={(e) => setOldpassword(e.target.value)}
@@ -70,7 +68,6 @@ function Resetpassword() {
             className="form-inputs"
             id="outlined-static"
             type="password"
-            label="New Password"
             value={newpassword}
             placeholder="New Password"
             onChange={(e) => setNewpassword(e.target.value)}

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Sidebar from './Sidebar'
 import Knight from './Knight'
 import { useContext } from "react";

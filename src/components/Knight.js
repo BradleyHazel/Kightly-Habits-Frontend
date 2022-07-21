@@ -287,17 +287,17 @@ function Knight(props) {
   }
 
   return (
-    <aside class="p-2 sm:p-4 md:p-4 lg:p-6 w-5/6 sm:w-1/2 md:w-2/5 lg:w-1/4 xl:w-1/4 2xl:w-1/6 m-5 ">  
+    <aside className="p-2 sm:p-4 md:p-4 lg:p-6 w-5/6 sm:w-1/2 md:w-2/5 lg:w-1/4 xl:w-1/4 2xl:w-1/6 m-5 ">  
       <div  style={{ display:"flex", flexDirection:"column", justifyContent:"space-evenly"}} className="max-w-sm rounded overflow-hidden shadow-lg">
         <img  src={knightImg} />
-        <div class="px-6 py-4 bg-gradient-to-tr from-purple-400 to-slate-500 ">
-          <div class="font-bold text-lg mb-2">{knightTitle} Knight of {name}</div>
-          <div class="text-xl mb-2" >Level: {knightLvl}</div>
+        <div className="px-7 py-4 bg-gradient-to-tr from-purple-400 to-slate-500 ">
+          <div className="font-bold text-lg mb-2">{knightTitle} Knight of {name}</div>
+          <div className="text-xl mb-2" >Level: {knightLvl}</div>
           <div>EXP</div>
           <div>Total: {knightXPTotal}</div>
           <ProgressBar completed={knightShowXP} bgColor={"#0072bb"} />
 
-          <button onClick={handleOpen} class="w-full block text-white bg-blue-500 hover:bg-blue-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold " type="button" data-modal-toggle="add-modal">
+          <button onClick={handleOpen} className="w-full block text-white bg-blue-500 hover:bg-blue-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold " type="button" data-modal-toggle="add-modal">
           Quest details
                 </button>
       <Modal
@@ -361,10 +361,10 @@ function Knight(props) {
      
       </Modal>
      
-          <div class="text-md mb-2">Quest Completed Today?</div>
+          <div className="text-md mb-2">Quest Completed Today?</div>
           
           
-          <input id={props.data._id} onClick={decidedFire} type="checkbox" checked={checkValue}/>
+          <input id={props.data._id} onClick={decidedFire} type="checkbox" defaultChecked={checkValue}/>
           <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
         </div>
       
