@@ -55,3 +55,20 @@ input[type='checkbox']:checked {
     transform: rotate(360deg);
   }
 }
+
+
+
+@media only screen and (max-width: 600px) {
+  #knightImg{
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+  #knightImg{
+    width: 220px;
+    height: 220px;
+    align-self: center;
+  }
+}

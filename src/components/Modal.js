@@ -6,6 +6,8 @@ import Modal from '@mui/material/Modal';
 import AppContext from "./AppContext";
 import { useContext } from "react";
 
+import CloseIcon from '@mui/icons-material/Close';
+
 import { TextField } from '@mui/material';
 import axios from "axios"
 import Knight from "./Knight"
@@ -15,7 +17,6 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -84,14 +85,17 @@ function mapKnights(knightArr){
         open={open}
         onClose={handleClose}
       >
-        <Box sx={style}>
+        <Box sx={style} className="w-auto">
+        <div className="flex justify-end">
+        <CloseIcon style={{cursor: "pointer"}} onClick={handleClose}  />
+        </div>
             <div className="flex flex-col">
             <h1 className="title text-2xl font-bold ">Add a new Habit Knight</h1>
                 <br />
         <img  src={'https://opengameart.org/sites/default/files/BronzeKnight.gif'} />
         <br />
-        <form onSubmit={handleSubmit}>
-            <div className="form-inputs">
+        <form onSubmit={handleSubmit} className="flex flex-col">
+            <div className="form-inputs flex flex-col">
               <TextField
                 required
                 className="form-inputs"
@@ -104,7 +108,7 @@ function mapKnights(knightArr){
               />
             </div>
             <br />
-            <div className="form-inputs">
+            <div className="form-inputs flex flex-col">
               <TextField
                 className="form-inputs"
                 id="outlined-static"
@@ -114,12 +118,15 @@ function mapKnights(knightArr){
                 onChange={(e) => setDesc(e.target.value)}
               />
             </div>
-            <div className="flex">
-            <button onClick={handleClose} className="w-full block text-white bg-red-500 hover:bg-red-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold" type="submit">
-              Close
-            </button>
+            <br />
+            <div className="flex flex-col">
+           
             <button className="w-full block text-white bg-blue-500 hover:bg-blue-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold" type="submit">
               Add New Knight
+            </button>
+            < br />
+            <button onClick={handleClose} className="w-full block text-white bg-red-500 hover:bg-red-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold" type="submit">
+              Close
             </button>
             </div>
        
