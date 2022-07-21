@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 import { useNavigate } from "react-router-dom";
 import AppContext from "../AppContext";
-
+import LoginNav from "../LoginForms/LoginNav"
 axios.defaults.withCredentials = true;
 
 
@@ -27,7 +27,8 @@ function Logout() {
       });
     }, []);
   return (
-    <div className='container'>Logout
+    <div className='container'>
+      <LoginNav />
  
       </div>
   )
