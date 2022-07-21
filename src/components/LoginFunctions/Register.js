@@ -36,7 +36,7 @@ let handleSubmit = async (e) => {
        axios.get('https://knightly-habits.herokuapp.com/checkAuthentication')
        .then(res => {
           myContext.setLoggedIn(res.data.authenticated);
-          nav("/home");
+          nav("/");
           
        })
    

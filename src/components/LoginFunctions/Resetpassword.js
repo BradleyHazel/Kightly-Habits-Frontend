@@ -26,7 +26,7 @@ function Resetpassword() {
       newpassword: newpassword,
      }).then((res)=>{
          console.log(res);
-            nav("/resetconfirmed");
+            nav("/resetconfirmed2");
 }).catch((error) => {
  console.log(error)
 });

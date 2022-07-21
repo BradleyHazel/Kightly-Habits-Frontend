@@ -7,7 +7,7 @@ function Resetconfirmed2() {
         <img className="form-img" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Wesnoth_shield.svg"></img>
       </div>
       <div className="form-content-right">
-        <h1 className="title text-xl text-white font-bold">Password has been sent, check your email!</h1>
+        <h1 className="title text-xl text-white font-bold">Password has been changed!</h1>
       </div>
     </div>
   );
