@@ -85,19 +85,19 @@ function Knight(props) {
 
   function pickKnightImg (level){
     if(level <= 0){
-      return "https://opengameart.org/sites/default/files/BronzeKnight.gif"
+      return require('../assets/Bronze.gif')
     }
     else if (level ==1){
-      return "https://opengameart.org/sites/default/files/BlackKnight.gif"
+      return  require('../assets/Black.gif')
     }
     else if (level ==2){
-      return "https://opengameart.org/sites/default/files/MitheralKnight.gif"
+      return require('../assets/Mith.gif')
     }
     else if (level ==3){
-      return "https://opengameart.org/sites/default/files/AdamantKnight.gif"
+      return require('../assets/Green.gif')
     }
     else if(level >= 4){
-      return "https://opengameart.org/sites/default/files/GoldKnight.gif"
+      return require('../assets/Gold.gif')
     }
     
   }
