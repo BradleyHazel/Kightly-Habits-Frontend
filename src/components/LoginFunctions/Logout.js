@@ -1,35 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useContext } from "react";
 
-import { useNavigate } from "react-router-dom";
 import AppContext from "../AppContext";
-import LoginNav from "../LoginForms/LoginNav"
+
+import { useNavigate } from "react-router-dom";
 axios.defaults.withCredentials = true;
 
 
 function Logout() {
-  const nav = useNavigate();
+  
   const myContext = useContext(AppContext);
+  const nav = useNavigate();
 
     useEffect(() => {
 
-      
+   
+
         axios.get('https://knightly-habits.herokuapp.com/logout')
         .then(res => {
          console.log(res)
          myContext.setLoggedIn(false)
        // window.location.reload(true);
-        nav("/login");
+       // nav("/");
         })
         .catch((error) => {
           console.log(error)
       });
     }, []);
   return (
-    <div className='container'>
-      <LoginNav />
- 
+    <div className='container'>Logout
+
       </div>
   )
 }
