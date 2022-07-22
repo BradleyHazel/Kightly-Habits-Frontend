@@ -21,7 +21,7 @@ function Logout() {
         .then(res => {
          console.log(res)
          myContext.setLoggedIn(false)
-       // window.location.reload(true);
+       window.location.reload(true);
        // nav("/");
         })
         .catch((error) => {
