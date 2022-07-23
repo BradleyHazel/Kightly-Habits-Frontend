@@ -24,6 +24,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setuser] = useState("");
   const [knights, setKnights] = useState("");
+  
 
   const userSettings = {
     loggedIn: loggedIn,

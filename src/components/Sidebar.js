@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Modal from './Modal'
 
 function Sidebar() {
@@ -11,7 +11,9 @@ function Sidebar() {
     <div >
    <aside  className="flex justify-between	 flex-col w-2/5  h-screen bg-slate-600  content-center overflow-auto w-16 sm:w-24 md:w-32 lg:w-40 	">
             <aside  className="flex flex-col">
+              <Link to='/'>
               <img src="https://cdn.iconscout.com/icon/free/png-256/knight-63-904196.png" alt=''/>
+              </Link>
               <div className='flex flex-col'>
                
                 <Modal />
@@ -19,7 +21,7 @@ function Sidebar() {
             </aside>
             <div className='flex flex-col'>
               
-              <button onClick={logout} style={{}} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold border py-2.5 border-blue-700 rounded-lg">
+              <button onClick={logout} style={{}} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold border mb-5 py-2 border-blue-700 rounded-lg">
                 logout
               </button>
             </div>

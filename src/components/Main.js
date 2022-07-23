@@ -20,8 +20,12 @@ function Main() {
   // Take the json and do something with it
   .then(json => {
     let knightArr =mapKnights(json)
+    if(knightArr.length>0){
     myContext.setKnights(knightArr);
-
+    }
+    else{
+      myContext.setKnights("Click Add Knight to begin!")
+    }
   })
   // Catch and log any errors to the console
   .catch(console.error);
@@ -44,10 +48,6 @@ function Main() {
         <Sidebar />
         <div style={{	width: "90vw"}} className="flex flex-row justify-evenly items-center overflow-scroll	flex-wrap	 h-screen bg-gradient-to-tr from-slate-300 to-green-300 ">
         {myContext.knights}
-     
-
-   
-        
         </div>
         
     </div>

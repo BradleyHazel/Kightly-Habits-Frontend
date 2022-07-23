@@ -196,10 +196,10 @@ function Knight(props) {
   function checkDelete(){
     console.log(123)
     if(deleteMsg == "Delete"){
-      let msg ="Are you sure?"
+      let msg ="Are you sure? Click again to Delete"
       setdeleteMsg(msg)
     }
-    else if(deleteMsg =="Are you sure?"){
+    else if(deleteMsg =="Are you sure? Click again to Delete"){
       let msg2 = "Delete";
       setdeleteMsg(msg2);
       axios.delete('https://knightly-habits.herokuapp.com/'+props.data._id)

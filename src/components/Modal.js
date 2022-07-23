@@ -4,6 +4,8 @@ import Modal from '@mui/material/Modal';
 import AppContext from "./AppContext";
 import { useContext } from "react";
 
+import {Link } from "react-router-dom"
+
 import CloseIcon from '@mui/icons-material/Close';
 
 import { TextField } from '@mui/material';
@@ -76,7 +78,7 @@ function mapKnights(knightArr){
  
   return (
     <div>
-         <button onClick={handleOpen} className="w-full block text-white bg-blue-500 hover:bg-blue-700 font-medium rounded-lg text-sm py-2.5 text-center font-bold " type="button" data-modal-toggle="add-modal">
+         <button onClick={handleOpen} className="bg-blue-500 hover:bg-blue-700 text-white font-bold border mb-5 py-2 border-blue-700 rounded-lg w-full " type="button" data-modal-toggle="add-modal">
                   Add Knight
                 </button>
       <Modal
